@@ -66,6 +66,13 @@ button:hover {
     color: #222;
 }
 
+#derivada {
+    text-align: center;
+    font-size: 18px;
+    margin: 15px 0;
+    color: #222;
+}
+
 #grafica {
     margin-top: 20px;
 }

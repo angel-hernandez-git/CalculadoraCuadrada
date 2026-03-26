@@ -3,20 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Calculadora Cuadrática con Derivada</title>
-    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-    <link rel="stylesheet" href="/Estilo_Front.css">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>  <!-- aqui importamos la libreria de javascrip "plotly -->
+    <link rel="stylesheet" href="/Estilo_Front.css">  <!--Importamos el css que le dara colores y brillitos xd-->
+    <link rel="icon" type="image/png" href="/imagenes/Iconos/calculator_6327778.png">
 </head>
 <body>
-    <div class="container">
-        <h2>Calculadora de Función Cuadrática</h2>
+    <div class="container"> <!--este sera el contenedor de los cuadros y botones de valores-->
+        <h2>Calculadora de Función Cuadrática</h2> <!-- titulo de la calculadora -->
         <div class="inputs">
-            <label>A: <input type="number" id="coef_a" value="1" step="0.5"></label>
-            <label>B: <input type="number" id="coef_b" value="0" step="0.5"></label>
-            <label>C: <input type="number" id="coef_c" value="0" step="0.5"></label>
+            <!--En este div, vamos a colocar los cuadros en donde el usuario podra escribir
+            sus valores para integrar a la grafica-->
+            <label>A: <input type="number" id="coef_a" value="0" step="1"></label>
+            <label>B: <input type="number" id="coef_b" value="0" step="1"></label>
+            <label>C: <input type="number" id="coef_c" value="0" step="1"></label>
+            <!--Estableciendo valores inciales de 0 para los 3 coeficientes, los
+            cuales seran x^2, x y c, ademas de que estas se puedan ir aumentando con unas 
+            flechitas de 1 en 1 hacia adelante-->
             <label>x Min: <input type="number" id="x_min" value="-3" step="0.5"></label>
             <label>x Max: <input type="number" id="x_max" value="3" step="0.5"></label>
-            <button onclick="graficar()">Graficar</button>
+            <!--Y en estos vamos a seleccionar los valores minimos y maximos de x para poder graficarlo
+            en los que vamos indicar -3 a 3, pero se pueden mover-->
+            <button onclick="graficar()">Graficar</button> <!--Este sera el boton de grafica, el cual llevara los valores
+            a las graficas en pantalla, usando la funcion graficar de la libreria de javascrip "plotly" -->
         </div>
+        <!--En estos div vamos a colocar los id de como se llamaran los distintos elementos importantes del codigo, como
+        el donde aparecera la funcion, la funcion deriavda, etc. Aun que los div son para crear los mini cuadros invisibles
+        en donde iran estos objetos o textos.-->
         <div id="funcion"></div>
         <div id="derivada"></div>
         <div id="grafica"></div>
@@ -31,7 +43,8 @@
             let x_min = parseFloat(document.getElementById("x_min").value);
             let x_max = parseFloat(document.getElementById("x_max").value);
 
-            // Mostrar función original
+            // Mostrar función original, tal como se ve aqui se va a ver dentro de su div, o para mas facil
+            // dentro del cuadro blanco, al igual que el codigo de abajo.
             document.getElementById("funcion").innerText = `f(x) = ${a}x² + ${b}x + ${c}`;
 
             // Derivada: f'(x) = 2ax + b
